@@ -71,6 +71,19 @@ class Puzzle:
         For debugginig
         '''
         return f"{self.grid}"
+    
+    def check(self):
+        '''
+        Returns true if puzzle is in a goal state
+        '''
+        g = self.unroll()
+        for i in range(len(g)):
+            if i + 1 != g[i]:
+                return False
+        return True
+
+
+
 
 
 

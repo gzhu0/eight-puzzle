@@ -31,9 +31,10 @@ class Node:
         for p in puzzles:
             nodes.append(Node(p, self.cost+1, heuristic(p.n, p) + self.cost+1))
         return nodes
-            
-
-
-
-
     
+    def goal_test(self):
+        '''
+        Returns true if the node is in a goal state
+        '''
+        return self.puzzle.check()
+            
