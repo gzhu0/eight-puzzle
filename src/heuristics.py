@@ -17,5 +17,22 @@ def misplaced_tile(n, puzzle):
             count += 1
     return count
 
-
+def manhattan_distance(n,puzzle):
+    '''
+    Returns the sum of the distance each tile is away from the correct position for an n x n puzzle
+    '''
+    total = 0
+    curr = 0
+    g = puzzle.grid
+    for i in range(len(g)):
+        for j in range(len(g[i])):
+            curr = g[i][j]
+            if curr == 0: curr = 9 
+            # Calculate the tile it is supposed to be on
+            curr_i = (curr-1)//n
+            curr_j = (curr-1)%n
+            # Find the distance of current tile to ideal distance
+            dist = abs(i-curr_i) + abs(j-curr_j)
+            total += dist 
+    return total
 
