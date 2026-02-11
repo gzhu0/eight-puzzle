@@ -22,7 +22,7 @@ if __name__ == "__main__":
     [6,0,7],
     [4,8,5]]
     )
-    if (h.misplaced_tile(3,p) != 7): error()
+    if (h.misplaced_tile(3,p) != 6): error()
     p = Puzzle(3,
     [[1,3,2],
     [4,9,7],
