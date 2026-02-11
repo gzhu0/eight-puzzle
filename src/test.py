@@ -2,13 +2,38 @@
 Function Testing
 '''
 from puzzle import Puzzle
+from node import Node
 import heuristics as h
+
 
 test = "null"
 def error():
     print(f"Failed on: {test}")
 
 if __name__ == "__main__":
+    # Testing Node Class
+    p = Puzzle(3,
+    [[1,2,3],
+    [4,5,6],
+    [7,8,0]]
+    )
+    node = Node(p)
+    nodes = node.expand(h.misplaced_tile)
+    for i in nodes:
+        print(i)
+    print()
+
+    p = Puzzle(3,
+    [[1,4,2],
+    [3,0,6],
+    [8,7,5]]
+    )
+    node = Node(p)
+    nodes = node.expand(h.manhattan_distance)
+    for i in nodes:
+        print(i)
+
+
     # Testing Misplaced Tile
     test = "Misplaced Tile"
     p = Puzzle(3,
@@ -51,10 +76,10 @@ if __name__ == "__main__":
         error()
     p = Puzzle(3,
     [[1,3,2],
-    [4,5,6],
-    [7,0,8]]
+    [4,5,8],
+    [7,0,6]]
     )
-    if (h.manhattan_distance(3,p) != 4): 
+    if (h.manhattan_distance(3,p) != 5): 
         print(h.manhattan_distance(3,p))
         error()
 

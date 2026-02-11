@@ -54,5 +54,26 @@ class Puzzle:
         '''
         return [i for x in self.grid for i in x]
 
+    
+    def __eq__(self,other):
+        '''
+        Comparison function for use in the visited set
+        '''
+        g = self.unroll()
+        g_other = other.unroll()
+        for i in range(len(g)):
+            if g[i] != g_other[i]:
+                return False
+        return True
+    
+    def __str__(self):
+        '''
+        For debugginig
+        '''
+        return f"{self.grid}"
+
+
+
+
 
 
