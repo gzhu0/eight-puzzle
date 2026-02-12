@@ -59,12 +59,10 @@ class Puzzle:
         '''
         Comparison function for use in the visited set
         '''
-        g = self.unroll()
-        g_other = other.unroll()
-        for i in range(len(g)):
-            if g[i] != g_other[i]:
-                return False
-        return True
+        return tuple(self.unroll()) == tuple(other.unroll())
+    
+    def __hash__(self):
+        return hash(tuple(self.unroll()))
     
     def __str__(self):
         '''
@@ -77,7 +75,7 @@ class Puzzle:
         Returns true if puzzle is in a goal state
         '''
         g = self.unroll()
-        for i in range(len(g)):
+        for i in range(len(g)-1):
             if i + 1 != g[i]:
                 return False
         return True

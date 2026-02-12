@@ -2,7 +2,7 @@
 Heuristic functions for sliding puzzle.
 '''
 
-def uniform_cost_search():
+def uniform_cost_search(*args):
     return 0
 
 def misplaced_tile(n, puzzle):

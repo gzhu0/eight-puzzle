@@ -22,10 +22,12 @@ class Node:
         return self.val > other.val
     
     def __str__(self):
-        return f"Cost: {self.cost}. val: {self.val}, Puzzle: {self.puzzle}"
+        return f"Node | Cost: {self.cost}. val: {self.val}, Puzzle: {self.puzzle}"
     
     def expand(self, heuristic):
-        # Expands node by expanding the puzzle, updating cost, and applying heuristics
+        '''
+        Expands node by expanding the puzzle, updating cost, and applying heuristics
+        '''
         puzzles = self.puzzle.move()
         nodes = []
         for p in puzzles:
