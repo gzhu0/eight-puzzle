@@ -16,9 +16,13 @@ class Node:
 
     # Overload operators for use in queueing structure 
     def __lt__(self,other):
+        if self.val == other.val:
+            return self.cost < other.cost
         return self.val < other.val
     
     def __gt__(self,other):
+        if self.val == other.val:
+            return self.cost > other.cost
         return self.val > other.val
     
     def __str__(self):
@@ -31,7 +35,7 @@ class Node:
         puzzles = self.puzzle.move()
         nodes = []
         for p in puzzles:
-            nodes.append(Node(p, self.cost+1, heuristic(p.n, p) + self.cost+1))
+            nodes.append(Node(p, self.cost+1, heuristic(p) + self.cost+1))
         return nodes
     
     def goal_test(self):

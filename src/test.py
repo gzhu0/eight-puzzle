@@ -30,10 +30,8 @@ if __name__ == "__main__":
         initial_state = Node(Puzzle(3,puzzle))
         for func in heuristics:
             result = general_search(initial_state, queueing_function, func)
-            if result[0] != ans:
-                print(f"Test {ans} failed on {func}: Got {result[0]} but expected {ans}")
-
-
+            if result.cost != ans:
+                print(f"Test {ans} failed on {func}: Got {result.cost} but expected {ans}")
 
     # Testing Check Function
     n = Node( Puzzle(3,
@@ -99,19 +97,19 @@ if __name__ == "__main__":
     [4,5,6],
     [7,8,0]]
     )
-    if (h.misplaced_tile(3,p) != 0): error()
+    if (h.misplaced_tile(p) != 0): error()
     p = Puzzle(3,
     [[2,1,3],
     [6,0,7],
     [4,8,5]]
     )
-    if (h.misplaced_tile(3,p) != 6): error()
+    if (h.misplaced_tile(p) != 6): error()
     p = Puzzle(3,
     [[1,3,2],
     [4,9,7],
     [8,5,0]]
     )
-    if (h.misplaced_tile(3,p) != 6): error()
+    if (h.misplaced_tile(p) != 6): error()
 
     # Testing Manhattan Distance
     # Using example from Lecture 3 Slide 29
@@ -121,16 +119,16 @@ if __name__ == "__main__":
     [4,5,6],
     [7,8,0]]
     )
-    if (h.manhattan_distance(3,p) != 0): 
-        print(h.manhattan_distance(3,p))
+    if (h.manhattan_distance(p) != 0): 
+        print(h.manhattan_distance(p))
         error()
     p = Puzzle(3,
     [[3,2,8],
     [4,5,6],
     [7,1,0]]
     )
-    if (h.manhattan_distance(3,p) != 8): 
-        print(h.manhattan_distance(3,p))
+    if (h.manhattan_distance(p) != 8): 
+        print(h.manhattan_distance(p))
         error()
 
     p = Puzzle(3,
@@ -138,8 +136,8 @@ if __name__ == "__main__":
     [6,0,2],
     [5,4,3]]
     )
-    if (h.manhattan_distance(3,p) != 16): 
-        print(h.manhattan_distance(3,p))
+    if (h.manhattan_distance(p) != 16): 
+        print(h.manhattan_distance(p))
         error()
 
 

@@ -25,10 +25,8 @@ p3 = Node( Puzzle(3,
 ) )
 
 p4 = Node( Puzzle(3,
-[[6,4,7],
-[8,5,0],
-[3,2,1]]
+[[1,6,7],[5,0,3],[4,8,2]]
 ) )
 
-x = general_search(p3, queueing_function, h.misplaced_tile)
+x = general_search(p4, queueing_function, h.manhattan_distance)
 print("Search Completed:", x)
