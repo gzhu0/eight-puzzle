@@ -17,10 +17,18 @@ p2 = Node( Puzzle(3,
 [2,6,3],
 [4,7,8]]
 ) )
-x = general_search(p1, queueing_function, h.uniform_cost_search)
-print(x)
 
+p3 = Node( Puzzle(3,
+[[0,7,2],
+[4,6,1],
+[3,5,8]]
+) )
 
+p4 = Node( Puzzle(3,
+[[6,4,7],
+[8,5,0],
+[3,2,1]]
+) )
 
-
-
+x = general_search(p3, queueing_function, h.misplaced_tile)
+print("Search Completed:", x)

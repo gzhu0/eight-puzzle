@@ -12,17 +12,28 @@ def error():
     print(f"Failed on: {test}")
 
 if __name__ == "__main__":
-    # Testing General Serach Function
-    # test = "General Search"
-    # head = Node( Puzzle(3,
-    # [[5,6,4],
-    # [1,2,0],
-    # [3,8,7]]
-    # ) )
-    # x = general_search(head, queueing_function, h.uniform_cost_search)
-    # if (x != 0):
-    #     error()
-    #     print(x)
+
+    # Testing Searches
+    cases = {
+        0: [[1,2,3],[4,5,6],[7,8,9]],
+        2 :[[1,2,3],[4,5,6],[0,7,8]],
+        4: [[1,2,3],[5,0,6],[4,7,8]],
+        8 :[[1,3,6],[5,0,2],[4,7,8]],
+        12 :[[1,3,6],[5,0,7],[4,8,2]],
+        16 :[[1,6,7],[5,0,3],[4,8,2]],
+        20 :[[7,1,2],[4,8,5],[6,3,0]],
+        24 :[[0,7,2],[4,6,1],[3,5,8]],
+    }
+    heuristics = (h.uniform_cost_search, h.misplaced_tile, h.manhattan_distance)
+
+    for ans, puzzle in cases.items():
+        initial_state = Node(Puzzle(3,puzzle))
+        for func in heuristics:
+            result = general_search(initial_state, queueing_function, func)
+            if result[0] != ans:
+                print(f"Test {ans} failed on {func}: Got {result[0]} but expected {ans}")
+
+
 
     # Testing Check Function
     n = Node( Puzzle(3,
@@ -121,12 +132,13 @@ if __name__ == "__main__":
     if (h.manhattan_distance(3,p) != 8): 
         print(h.manhattan_distance(3,p))
         error()
+
     p = Puzzle(3,
-    [[1,3,2],
-    [4,5,8],
-    [7,0,6]]
+    [[7,8,1],
+    [6,0,2],
+    [5,4,3]]
     )
-    if (h.manhattan_distance(3,p) != 5): 
+    if (h.manhattan_distance(3,p) != 16): 
         print(h.manhattan_distance(3,p))
         error()
 
