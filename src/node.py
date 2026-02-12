@@ -39,4 +39,10 @@ class Node:
         Returns true if the node is in a goal state
         '''
         return self.puzzle.check()
+    
+    def hash(self):
+        '''
+        Returns a tuple of the puzzle unrolled
+        '''
+        return tuple(self.puzzle.unroll())
             
