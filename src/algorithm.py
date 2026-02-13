@@ -19,7 +19,7 @@ def remove_front(list : list):
 
 def queueing_function(nodes, new_nodes, visited_nodes):
     '''
-    Queueing function to put 
+    Queueing function for the general search
     '''
     for n in new_nodes:
         if n.hash() not in visited_nodes:
@@ -30,24 +30,30 @@ def queueing_function(nodes, new_nodes, visited_nodes):
     return nodes
 
 
-def general_search(puzzle: Node, queueing_function,heuristic):
+def general_search(start_node: Node, queueing_function, heuristic, trace = False):
     '''
-    Queueing function
+    General Search Function 
+    Returns goal node, max queue size, nodes expanded
     '''
-    nodes = [puzzle] # Making the queue
-    # Creating set of all queued nodes
-    visited_nodes = set() 
+    nodes = [start_node] # Making the queue
+    visited_nodes = set() # Initializing visited set
+    nodes_expanded = 0 # Keeping track of the amount of nodes expanded
+    max_queue_size = 1 # Keeping track of the max queue size
 
     while True:
         if empty(nodes): 
-            return -1
+            return -1, max_queue_size, nodes_expanded
         node = remove_front(nodes)
         visited_nodes.add(node.hash())
-        #print(f"Node {node.cost} {node.val} {node.hash()}")
+
+        if trace: print(f"Popping {node}")
+        nodes_expanded += 1
 
         if node.goal_test():
-            return node
+            return node.cost, max_queue_size, nodes_expanded
         nodes = queueing_function(nodes,node.expand(heuristic), visited_nodes)
+        max_queue_size = max(max_queue_size, len(nodes))
+        
         
         
 

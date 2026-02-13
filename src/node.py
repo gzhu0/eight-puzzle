@@ -26,7 +26,7 @@ class Node:
         return self.val > other.val
 
     def __str__(self):
-        return f"Node | Cost: {self.cost}. val: {self.val}, Puzzle: {self.puzzle}"
+        return f"Node | Depth: {self.cost}. f(n): {self.val}, Puzzle: {self.puzzle}"
     
     def expand(self, heuristic):
         '''
