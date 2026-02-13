@@ -1,3 +1,6 @@
+'''
+Puzzle class to represent a n x n sliding puzzle
+'''
 class Puzzle:
     def __init__(self, n, grid = None, zero_pos = None):
         '''
@@ -55,9 +58,6 @@ class Puzzle:
         return [i for x in self.grid for i in x]
     
     def __str__(self):
-        '''
-
-        '''
         return f"{self.grid}"
     
     def check(self):
@@ -69,12 +69,6 @@ class Puzzle:
             if i + 1 != g[i]:
                 return False
         return True
-
-    def __eq__(self,other):
-        '''
-        Comparison function for use in the visited set
-        '''
-        return tuple(self.unroll()) == tuple(other.unroll())
     
     def __hash__(self):
         return hash(tuple(self.unroll()))

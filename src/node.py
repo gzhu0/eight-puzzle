@@ -1,5 +1,5 @@
 '''
-Node class for searching through puzzles states
+Node class that represents puzzle states
 '''
 
 class Node:
@@ -16,14 +16,7 @@ class Node:
 
     # Overload operators for use in queueing structure 
     def __lt__(self,other):
-       # if self.val == other.val:
-        #   return self.cost < other.cost
         return self.val < other.val
-    
-    def __gt__(self,other):
-       # if self.val == other.val:
-       #     return self.cost > other.cost
-        return self.val > other.val
 
     def __str__(self):
         return f"Node | Depth: {self.cost}. f(n): {self.val}, Puzzle: {self.puzzle}"

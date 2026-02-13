@@ -1,5 +1,5 @@
 # Eight Puzzle Solver
-Solver for n-puzzle problem using A* using various herustics for a class
+Solver for n-puzzle problem (sliding puzzle) using A* with various herustics for a class 
 
 
 ## Packages
@@ -14,6 +14,8 @@ https://www.w3schools.com/python/python_args_kwargs.asp
 Hashing References for Visited Set  
 https://www.geeksforgeeks.org/python/python-convert-a-list-of-multiple-integers-into-a-single-integer/  
 https://www.geeksforgeeks.org/python/python-hash-method/  
+Graphing Datapoints
+
 
 
 

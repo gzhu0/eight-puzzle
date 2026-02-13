@@ -1,5 +1,5 @@
 '''
-Heuristic functions for sliding puzzle.
+Heuristic functions for the sliding puzzle problem
 '''
 
 def uniform_cost_search(*args):

@@ -1,5 +1,5 @@
 '''
-Function Testing
+Tests for various helper functions and algorithm test cases
 '''
 from puzzle import Puzzle
 from node import Node
@@ -34,8 +34,9 @@ if __name__ == "__main__":
             start_time = time.perf_counter()
             result = general_search(initial_state, queueing_function, func)
             end_time = time.perf_counter()
-            if result.cost != ans:
-                print(f"Test {ans} failed on {func}: Got {result.cost} but expected {ans}")
+            if result[0] != ans:
+                print(f"Test {ans} failed on {func}: Got {result[0]} but expected {ans}")
+                
             else:
                 print("Test Passed")
             print("Time: ", end_time - start_time)
