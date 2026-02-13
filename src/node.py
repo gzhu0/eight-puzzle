@@ -16,15 +16,15 @@ class Node:
 
     # Overload operators for use in queueing structure 
     def __lt__(self,other):
-        if self.val == other.val:
-            return self.cost < other.cost
+       # if self.val == other.val:
+        #   return self.cost < other.cost
         return self.val < other.val
     
     def __gt__(self,other):
-        if self.val == other.val:
-            return self.cost > other.cost
+       # if self.val == other.val:
+       #     return self.cost > other.cost
         return self.val > other.val
-    
+
     def __str__(self):
         return f"Node | Cost: {self.cost}. val: {self.val}, Puzzle: {self.puzzle}"
     

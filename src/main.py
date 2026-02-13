@@ -28,5 +28,5 @@ p4 = Node( Puzzle(3,
 [[1,6,7],[5,0,3],[4,8,2]]
 ) )
 
-x = general_search(p4, queueing_function, h.manhattan_distance)
+x = general_search(p4, queueing_function, h.uniform_cost_search)
 print("Search Completed:", x)

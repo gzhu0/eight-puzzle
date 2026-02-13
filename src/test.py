@@ -5,6 +5,7 @@ from puzzle import Puzzle
 from node import Node
 import heuristics as h
 from algorithm import general_search, queueing_function
+import time
 
 
 test = "null"
@@ -29,9 +30,15 @@ if __name__ == "__main__":
     for ans, puzzle in cases.items():
         initial_state = Node(Puzzle(3,puzzle))
         for func in heuristics:
+            print(f"Testing {ans} on {func.__name__}")
+            start_time = time.perf_counter()
             result = general_search(initial_state, queueing_function, func)
+            end_time = time.perf_counter()
             if result.cost != ans:
                 print(f"Test {ans} failed on {func}: Got {result.cost} but expected {ans}")
+            else:
+                print("Test Passed")
+            print("Time: ", end_time - start_time)
 
     # Testing Check Function
     n = Node( Puzzle(3,
