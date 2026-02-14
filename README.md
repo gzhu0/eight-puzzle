@@ -16,6 +16,8 @@ https://www.geeksforgeeks.org/python/python-convert-a-list-of-multiple-integers-
 https://www.geeksforgeeks.org/python/python-hash-method/  
 Graphing Datapoints
 
+Determining if an 8-puzzle is valid
+
 
 
 
